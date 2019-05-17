@@ -11,6 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+        <?php coffecan_the_category_list(); ?>
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -22,8 +23,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
+                coffecan_posted_by();
 				coffecan_posted_on();
-				coffecan_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

@@ -11,7 +11,9 @@ html {
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
-
+blockquote{
+	quotes: "" "";
+}
 hr {
 	background-color: $color__background-hr;
 	border: 0;
