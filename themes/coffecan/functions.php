@@ -44,7 +44,7 @@ if ( ! function_exists( 'coffecan_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'coffecan' ),
+			'menu-1' => esc_html__( 'Header', 'coffecan' ),
 		) );
 
 		/*
@@ -79,6 +79,12 @@ if ( ! function_exists( 'coffecan_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+		// Add theme support for custom logo
+        add_theme_support( 'custom-logo', array(
+           'width' =>90,
+           'height' => 90,
+           'flex-width' => true,
+        ));
 	}
 endif;
 add_action( 'after_setup_theme', 'coffecan_setup' );
@@ -122,7 +128,12 @@ add_action( 'widgets_init', 'coffecan_widgets_init' );
 function coffecan_scripts() {
 	wp_enqueue_style( 'coffecan-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'coffecan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'coffecan-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
+	wp_localize_script('coffecan-navigation', 'coffecanScreenReaderText', array(
+	    'expand' => __('Expand child menu', 'coffecan'),
+        'collapse' => __('Collapse child menu', 'coffecan'),
+    ));
 
 	wp_enqueue_script( 'coffecan-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

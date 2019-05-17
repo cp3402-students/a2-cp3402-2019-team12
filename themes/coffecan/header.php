@@ -23,11 +23,20 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'coffecan' ); ?></a>
-
+    <?php if ( get_header_image() && is_front_page()) : ?>
+        <div id="site-header">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                <img src="<?php header_image(); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+            </a>
+        </div>
+    <?php endif; ?>
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
+            <!-- Logo -->
+            <?php the_custom_logo(); ?>
+            <div class="site-branding__text">
+            <!-- Image header -->
 			<?php
-			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -42,6 +51,7 @@
 				?>
 				<p class="site-description"><?php echo $coffecan_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
+            </div><!-- .site-branding__text -->
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
