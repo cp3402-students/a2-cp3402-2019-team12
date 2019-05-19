@@ -48,7 +48,7 @@ if ( ! function_exists( 'coffecan_posted_by' ) ) :
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-            echo ' <span class="comments-link">';
+            echo ' <span class="comments-link"><span class="extra">Discussion</span>';
             comments_popup_link(
                 sprintf(
                     wp_kses(
@@ -74,6 +74,8 @@ if ( ! function_exists( 'coffecan_posted_by' ) ) :
                         'span' => array(
                             'class' => array(),
                         ),
+                        '<span class="edit-link"><span class="extra">Admin </span>',
+                        '</span>'
                     )
                 ),
                 get_the_title()
