@@ -42,18 +42,24 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination(array(
+                'prev_text' =>  __( 'Newer', 'coffecan' ),
+                'next_text' => __( 'Older', 'coffecan' ) ,
+                'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'coffecan' ) . '</span>',
+            ));
 
-		else :
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
+            ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
 get_sidebar();
 get_footer();
+
+else :
+
+    get_template_part( 'template-parts/content', 'none' );
+    return;
+
+endif;

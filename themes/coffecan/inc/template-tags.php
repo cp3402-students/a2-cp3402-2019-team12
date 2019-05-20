@@ -163,3 +163,17 @@ function coffecan_post_navigation(){
                 '<span class="post-title">%title</span>',
     ));
 }
+/**
+ * Customize ellipsis at end of excerpts.
+ */
+function coffecan_excerpt_more( $more ) {
+    return "…";
+}
+add_filter( 'excerpt_more', 'coffecan_excerpt_more' );
+/**
+ * Filter excerpt length to 100 words.
+ */
+function coffecan_excerpt_length( $length ) {
+    return 100;
+}
+add_filter( 'excerpt_length', 'coffecan_excerpt_length');

@@ -29,9 +29,12 @@
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php coffecan_post_thumbnail(); ?>
-
+    <?php
+    if (has_post_thumbnail()) { ?>
+    <figure class="featured-image full-bleed">
+	    <?php coffecan_post_thumbnail(); ?>
+    </figure><!-- .featured-image full-bleed -->
+    <?php } ?>
     <section class="post-content">
 
     <?php

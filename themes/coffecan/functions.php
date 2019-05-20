@@ -41,10 +41,13 @@ if ( ! function_exists( 'coffecan_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size('coffecan-full-bleed', 2000, 1200, true);
+        add_image_size('coffecan-index-img', 800, 450, true);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Header', 'coffecan' ),
+            'social' => esc_html__( 'Social Media Menu', 'coffecan' ),
 		) );
 
 		/*
@@ -119,6 +122,15 @@ function coffecan_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer Widgets', 'coffecan' ),
+        'id'            => 'footer-1',
+        'description'   => esc_html__( 'Add footer widgets here.', 'coffecan' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
 }
 add_action( 'widgets_init', 'coffecan_widgets_init' );
 
