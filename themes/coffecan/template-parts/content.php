@@ -34,38 +34,33 @@
 			?>
 			<div class="entry-meta">
 				<?php
-                coffecan_posted_by();
 				coffecan_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php coffecan_post_thumbnail(); ?>
-
 	<div class="entry-content">
-		<?php
-		    the_excerpt();
-		?>
+        <?php
+        $length_setting = get_theme_mod('length_setting');
+        if ( 'excerpt' === $length_setting ) {
+            the_excerpt();
+        } else {
+            the_content();
+        }
+        ?>
 	</div><!-- .entry-content -->
         <div class="continue-reading">
             <?php
             $read_more_link = sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'coffecan' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		);
+            /* translators: %s: Name of current post. */
+                wp_kses( __( 'Continue reading %s', 'humescores' ), array( 'span' => array( 'class' => array() ) ) ),
+                the_title( '<span class="screen-reader-text">"', '"</span>', false )
+            );
             ?>
             <a href="<?php echo esc_url( get_permalink() ) ?>'" rel="bookmark">
                 <?php echo $read_more_link; ?>
                 </a>
         </div><!-- .continue-reading -->
     </div><!-- .post__content -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post --->

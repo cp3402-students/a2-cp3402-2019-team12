@@ -20,8 +20,15 @@ function coffecan_body_classes( $classes ) {
 
 	// Adds a class of no-sidebar when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
+		$classes[] = 'has-sidebar';
+	} else {
+	    $classes[] = 'no-sidebar';
+    }
+
+	// adds a class telling us if the page siderbar is in use.
+    if (is_active_sidebar('siderbar-2')) {
+        $classes[] = 'has-page-sidebar';
+    }
 
 	return $classes;
 }
