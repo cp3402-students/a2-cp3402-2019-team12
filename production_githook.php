@@ -4,6 +4,7 @@
 * Date: 18/05/2019
 * Time: 4:42 AM
 */
-<?php
+<?php 'git pull';
 
-'git pull';
+//it does not have admin permissions ...needs work
+// try sudo..but unsafe
