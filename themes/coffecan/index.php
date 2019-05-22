@@ -42,9 +42,9 @@ get_header();
 
 			endwhile;
 
-			the_posts_pagination(array(
-                'prev_text' =>  __( 'Newer', 'coffecan' ),
-                'next_text' => __( 'Older', 'coffecan' ) ,
+            the_posts_pagination( array(
+                'prev_text' => coffecan_get_svg( array( 'icon' => 'arrow-long-left', 'fallback' => true ) ) . __( 'Newer', 'coffecan' ),
+                'next_text' => __( 'Older', 'coffecan' ) . coffecan_get_svg( array( 'icon' => 'arrow-long-right' , 'fallback' => true ) ),
                 'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'coffecan' ) . '</span>',
             ));
 

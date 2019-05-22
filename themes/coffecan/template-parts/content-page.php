@@ -16,7 +16,7 @@
 
 	<?php coffecan_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content post-content">
 		<?php
 		the_content();
 
@@ -25,7 +25,11 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- .entry-content .post-content-->
+
+    <?php
+    get_sidebar( 'page' );
+    ?>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

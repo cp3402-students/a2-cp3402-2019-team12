@@ -88,9 +88,70 @@ if ( ! function_exists( 'coffecan_setup' ) ) :
            'height' => 90,
            'flex-width' => true,
         ));
+        /* Editor styles */
+        add_editor_style( array( 'inc/editor-styles.css', coffecan_fonts_url() ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'coffecan_setup' );
+
+/**
+ * Register custom fonts.
+ */
+function coffecan_fonts_url() {
+    $fonts_url = '';
+
+    /**
+     * Translators: If there are characters in your language that are not
+     * supported by Source Sans Pro and PT Serif, translate this to 'off'. Do not translate
+     * into your own language.
+     */
+    $source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'coffecan' );
+    $pt_serif = _x( 'on', 'PT Serif font: on or off', 'coffecan' );
+
+    $font_families = array();
+
+    if ( 'off' !== $source_sans_pro ) {
+        $font_families[] = 'Source Sans Pro:400,400i,700,900';
+    }
+
+    if ( 'off' !== $pt_serif ) {
+        $font_families[] = 'PT Serif:400,400i,700,700i';
+    }
+
+
+    if ( in_array( 'on', array($source_sans_pro, $pt_serif) ) ) {
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,latin-ext' ),
+        );
+
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+
+    return esc_url_raw( $fonts_url );
+}
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @since Twenty Seventeen 1.0
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function coffecan_resource_hints( $urls, $relation_type ) {
+    if ( wp_style_is( 'coffecan-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+        $urls[] = array(
+            'href' => 'https://fonts.gstatic.com',
+            'crossorigin',
+        );
+    }
+
+    return $urls;
+}
+add_filter( 'wp_resource_hints', 'coffecan_resource_hints', 10, 2 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -108,6 +169,77 @@ function coffecan_content_width() {
 add_action( 'after_setup_theme', 'coffecan_content_width', 0 );
 
 /**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ */
+function coffecan_content_image_sizes_attr( $sizes, $size ) {
+    $width = $size[0];
+
+    if ( 900 <= $width ) {
+        $sizes = '(min-width: 900px) 700px, 900px';
+    }
+
+    if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-2' ) ) {
+        $sizes = '(min-width: 900px) 600px, 900px';
+    }
+
+    return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'coffecan_content_image_sizes_attr', 10, 2 );
+
+/**
+ * Filter the `sizes` value in the header image markup.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $html   The HTML image tag markup being filtered.
+ * @param object $header The custom header object returned by 'get_custom_header()'.
+ * @param array  $attr   Array of the attributes for the image tag.
+ * @return string The filtered header image HTML.
+ */
+function coffecan_header_image_tag( $html, $header, $attr ) {
+    if ( isset( $attr['sizes'] ) ) {
+        $html = str_replace( $attr['sizes'], '100vw', $html );
+    }
+    return $html;
+}
+add_filter( 'get_header_image_tag', 'coffecan_header_image_tag', 10, 3 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param array $attr       Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size       Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ */
+function coffecan_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+
+    if ( !is_singular() ) {
+        if ( is_active_sidebar( 'sidebar-1' ) ) {
+            $attr['sizes'] = '(max-width: 900px) 90vw, 800px';
+        } else {
+            $attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
+        }
+    } else {
+        $attr['sizes'] = '100vw';
+    }
+
+    return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'coffecan_post_thumbnail_sizes_attr', 10, 3 );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -122,6 +254,17 @@ function coffecan_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+    register_sidebar( array(
+        'name'          => esc_html__( 'Page Sidebar', 'coffecan' ),
+        'id'            => 'sidebar-2',
+        'description'   => esc_html__( 'Add page sidebar widgets here.', 'coffecan' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
     register_sidebar( array(
         'name'          => esc_html__( 'Footer Widgets', 'coffecan' ),
         'id'            => 'footer-1',
@@ -183,4 +326,9 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Load SVG icon functions.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
 

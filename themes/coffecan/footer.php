@@ -15,8 +15,8 @@
 
     <?php get_sidebar( 'footer' ); ?>
 
-	<footer id="colophon" class="site-footer">
-
+	<footer id="colophon" class="site-footer" role ="contentinfo">
+        <div class="site-footer__wrap">
         <nav class="social-menu">
             <?php wp_nav_menu(array('theme_location' => 'social')); ?>
         </nav><!-- .social-menu -->
@@ -34,6 +34,7 @@
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'coffecan' ), 'coffecan', '<a href="http://underscores.me/">Team12</a>' );
 				?>
 		</div><!-- .site-info -->
+        </div><!-- .site-footer__wrap -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

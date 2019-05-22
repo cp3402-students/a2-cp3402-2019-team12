@@ -10,8 +10,8 @@
   magrin: 0 auto;
 }
 @media screen and (min-width: $query__medium){
-  .single {
-    &.has-siderbar {
+  .single.has-sidebar,
+  .page {
 
       .hentry {
         display: flex;
@@ -30,6 +30,17 @@
         .widget-area {
           width: $size__ratio-small;
         }
+      }
+    }
+    .page {
+      &.has-page-sidebar {
+        .hentry {
+          flex-direction: row-reverse;
+        }
+      }
+      &:not(.has-page-sidebar) {
+        .hentry {
+          justify-content: flex-end;
       }
     }
   }
