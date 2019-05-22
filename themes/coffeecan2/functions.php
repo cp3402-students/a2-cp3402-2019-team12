@@ -121,10 +121,14 @@ add_action( 'widgets_init', 'coffee_can_widgets_init' );
  */
 function coffee_can_scripts() {
 	wp_enqueue_style( 'coffee-can-style', get_stylesheet_uri() );
-     wp_enqueue_style( 'corecss', get_template_directory_uri() . '/css/style.css');
 	wp_enqueue_style( 'coffee-can-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
-
+	wp_enqueue_style( 'owl-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css' );
+	
+     wp_enqueue_style( 'corecss', get_template_directory_uri() . '/css/style.css');
+	
+wp_enqueue_script( 'core-jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', array(), '20151215', true );
 	wp_enqueue_script( 'coffee-can-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'owl-slider', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
