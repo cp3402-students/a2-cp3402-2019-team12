@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+body {
+  background: #ddd;
+  font-family: "Varela Round", sans-serif;
+  color: #000; }
+
+header {
+  float: left;
+  width: 100%; }
+
+video {
+  -webkit-transform: rotateZ(90);
+  transform: rotateZ(90); }
+
+video {
+  width: 100%;
+  position: relative;
+  margin-top: -32%;
+  float: left; }
+
+.header_menu {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px; }
+  .header_menu ul {
+    padding: 0px;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center; }
+  .header_menu li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    margin-right: 20px; }
+  .header_menu li a {
+    color: #fff;
+    font-family: "Varela Round", sans-serif;
+    text-decoration: none;
+    margin-top: 0px;
+    float: left;
+    line-height: 128px;
+    font-size: 20px; }
+  .header_menu li a:hover {
+    color: #fff;
+    font-family: "Varela Round", sans-serif;
+    text-decoration: none;
+    color: #f8f506; }
+  .header_menu li:nth-child(4) a {
+    background: url("../images/logo.png") no-repeat;
+    height: 128px;
+    width: 128px;
+    text-indent: -9999px;
+    line-height: 128px;
+    margin-right: 20px;
+    margin-right: 65px;
+    margin-left: 65px; }
+  .header_menu li a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f8f506;
+    transition: width .3s;
+    position: absolute;
+    bottom: 46px; }
+  .header_menu li a:hover:after {
+    width: 100%;
+    transition: width .3s; }
+  .header_menu li:nth-child(4) a:hover:after {
+    display: none; }
+
+.hero_area {
+  position: absolute;
+  color: fff;
+  text-align: center;
+  width: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  top: 37%;
+  left: 50%; }
+  .hero_area h2 {
+    color: #f8f506;
+    font-family: "Lobster", cursive;
+    font-size: 90px; }
+  .hero_area p {
+    font-family: "Varela Round", sans-serif;
+    color: #fff;
+    font-size: 22px; }
+
+/*# sourceMappingURL=style.css.map */
