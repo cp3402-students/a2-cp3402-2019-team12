@@ -34,8 +34,8 @@
 			<?php } ?>
 
 			<div class="site-info">
-				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'coffeecan' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'coffeecan' ), 'WordPress' ); ?></a></div>
-				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'coffeecan' ), 'Coffeecan', '<a href="https://wordpress.org/" rel="designer">Team 12</a>' ); ?></div>
+                <div><a href="http://13.210.248.167" rel="designer">Opening Hours</a></div>
+				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'coffeecan' ), 'Coffeecan', 'Team 12' ); ?></div>
 			</div><!-- .site-info -->
 		</div><!-- .site-footer__wrap -->
 	</footer><!-- #colophon -->
