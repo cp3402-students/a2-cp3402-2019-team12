@@ -11,7 +11,7 @@
 	position: relative;
 	padding: 1em;
 	font-family: $font__sans;
-	color: #fff;
+	color: black;
 	background-color: $color__skin;
 	
 	@media screen and (min-width: $query__small) {
@@ -28,7 +28,7 @@
 	margin-right: 1em;
 	img {
 		display: block;
-		height: 65px;
+		height: 100px;
 		width: auto;
 	}
 }
@@ -48,7 +48,7 @@
 	line-height: 1em;
 	
 	a {
-		color: white;
+		color: Black;
 		text-decoration: none;
 		
 		&:hover,

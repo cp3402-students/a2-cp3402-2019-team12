@@ -1,8 +1,8 @@
 .main-navigation {
 	display: block;
-
+	padding-top: inherit;
 	font-family: $font__sans;
-	font-weight: 400;
+	font-weight: 600;
 	clear: left;
 
 	ul {
@@ -50,7 +50,7 @@
 		width: 100%;
 		padding: .5em 1em .5em 0;
 		text-decoration: none;
-		color: #fff;
+		color: black;
 	}
 
 	a:hover,
