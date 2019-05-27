@@ -36,7 +36,7 @@
 }
 
 .page-header {
-	font-family: $font__sans;
+	font-family: $font__main;
 }
 
 .page-title {
@@ -54,7 +54,7 @@
 	.page-content {
 		margin-bottom: 2em;
 		padding: 1em 2em;
-		font-family: $font__sans;
+		font-family: $font__main;
 		color: white;
 		background: $color__interactive;
 	}
@@ -105,7 +105,7 @@
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	font-family: $font__sans;
+	font-family: $font__main;
 	
 	a {
 		display: block;

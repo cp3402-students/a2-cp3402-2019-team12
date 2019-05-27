@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Humescores
+ * @package coffeecan
  */
 
 get_header(); ?>

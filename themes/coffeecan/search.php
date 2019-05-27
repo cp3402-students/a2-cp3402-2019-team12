@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Humescores
+ * @package coffeecan
  */
 
 get_header(); ?>
