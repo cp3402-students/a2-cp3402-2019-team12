@@ -29,3 +29,21 @@ Theme developed by using the starter theme 'underscores'.
 * Deployment:
   - [Git](https://gitforwindows.org/) for Git Bash command line.
   - [Docker](https://www.docker.com/)
+### Local Development Setup
+This is how you set up docker to develope changes and manage the theme before submitting it to the public server.
+* Intall docker
+* Launch your Command line input
+* Make a directory for wordpress:
+`mkdir "directory name"`
+* Add the `docker-compose.yml` to the directory
+* Run the file by executing this command: `docker-compose up`
+* Add the theme to the directory in the directory you made: `\wp_data\wp-content\themes`
+* Go to either `localhost:8000` or `http://127.0.0.1:8000`
+* Set up the wordpress through the famous 5-minute installation screen.
+* Go to Appereance > themes and select the `CoffeeCan`
+* The websites contents will be empty, you can either extract and import from the public server using `All-in-One WP Migration` or start anew.
+* Now you can edit the theme through any php editor and change the contents accordingly
+* If using Phpstorm make sure to use a file watcher with scss
+* To end the local server execute `docker-compose stop` in the commandline input
+
+### AWS Setup
