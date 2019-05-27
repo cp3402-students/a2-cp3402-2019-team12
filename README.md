@@ -18,6 +18,7 @@ Theme developed by using the starter theme 'underscores'.
   - [WP forms](https://wpforms.com/)
   - [elementor](https://elementor.com/)
   - [All-in-One WP Migration](https://en-au.wordpress.org/plugins/all-in-one-wp-migration/)
+  - [Custom Facebook Feed](http://smashballoon.com/custom-facebook-feed)
 ### Workflow
 * Development: [Phpstorm](https://www.jetbrains.com/phpstorm/)
 * Collaboration:
