@@ -44,5 +44,6 @@ This is how you set up docker to develope changes and manage the theme before su
 * The websites contents will be empty, you can either extract and import from the public server using `All-in-One WP Migration` or start anew.
 * Now you can edit the theme through any php editor and change the contents accordingly
 * If using Phpstorm make sure to use a file watcher with scss
+* To end the local server execute `docker-compose stop` in the commandline input
 
 ### AWS Setup
