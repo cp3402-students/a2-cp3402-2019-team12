@@ -3,7 +3,7 @@
 .post-navigation,
 .paging-navigation {
 	padding: 2em 0;
-	font-family: $font__main;
+	font-family: $font__sans;
 	text-align: left;
 	overflow: hidden;
 	
@@ -94,7 +94,7 @@
 
 .pagination {
 	
-	font-family: $font__main;
+	font-family: $font__sans;
 	
 	.nav-links {
 		display: flex;
