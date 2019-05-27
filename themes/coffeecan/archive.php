@@ -4,7 +4,11 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
+<<<<<<< HEAD
  * @package Humescores
+=======
+ * @package coffeecan
+>>>>>>> 1c40b53fc2514b6251200450f578cbdbe46c5d0f
  */
 
 get_header(); ?>
@@ -44,8 +48,13 @@ endif; ?>
 			endwhile;
 
 			the_posts_pagination( array(
+<<<<<<< HEAD
 				'prev_text' => humescores_get_svg( array( 'icon' => 'arrow-long-left', 'fallback' => true ) ) . __( 'Newer', 'coffeecan' ),
 				'next_text' => __( 'Older', 'coffeecan' ) . humescores_get_svg( array( 'icon' => 'arrow-long-right' , 'fallback' => true ) ),
+=======
+				'prev_text' => coffeecan_get_svg( array( 'icon' => 'arrow-long-left', 'fallback' => true ) ) . __( 'Newer', 'coffeecan' ),
+				'next_text' => __( 'Older', 'coffeecan' ) . coffeecan_get_svg( array( 'icon' => 'arrow-long-right' , 'fallback' => true ) ),
+>>>>>>> 1c40b53fc2514b6251200450f578cbdbe46c5d0f
 				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'coffeecan' ) . '</span>',
 			));
 
