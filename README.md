@@ -49,3 +49,18 @@ This is how you set up docker to develope changes and manage the theme before su
 * To end the local server execute `docker-compose stop` in the commandline input
 
 ### AWS Setup
+For the purpose of this project two AWS EC2 instances are used.
+* Staging
+  - Address: [54.252.178.92](http://54.252.178.92/)
+* Production
+  - Address: [18.217.117.223](http://18.217.117.223/)
+
+To setup an EC2 instance
+* Navigate to EC2 dashboard and go to launch an Instance.
+* You can choose a wordpress image from 'bitnami' and launch a t2.micro instance.
+* `ssh` in the new instance and navigate to the `wp-contant` directory and `clone` this repository in it.
+* Now you can login into the wordpress admin panel via `<your-instance-ip>/wp-admin`. You will find the password for the new wordpress installation in the system logs of the EC2 machine.
+* Before migrating the database to the server you might need to adjust the file permission of the machine. You can do it by using the `chmod` command.
+* Use the All-in-one Migration plugin from the wordpress dashboard to import the database of the site.
+
+## Now your site is up-to-date. You can start implementing you great new ideas now!!
