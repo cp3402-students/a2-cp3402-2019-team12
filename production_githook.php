@@ -6,5 +6,3 @@
 */
 <?php 'git pull';
 
-//it does not have admin permissions ...needs work
-// try sudo..but unsafe
