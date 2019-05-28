@@ -90,11 +90,10 @@ button.dropdown-toggle {
 	right: 0;
 	display: block;
 	margin: 1.2em 1.2em 0 0;
-	padding: .6em .8em;
 	font-size: 80%;
 	text-transform: uppercase;
-	color: white;
-	border: 1px solid hsla(0, 0%, 100%, .3);
+	color: #000000;
+	padding: 0.6em 0.8em;
 }
 
 /* Toggle small menu and children on */
@@ -154,14 +153,7 @@ button.dropdown-toggle {
 		ul {
 			justify-content: flex-end;
 			padding-top: 0;
-
-			/* If you want dropdowns to open on hover, uncomment this: */
-			/*
-			li:hover > ul,
-				li:focus > ul {
-				display: block;
-			}
-			*/
+			
 		}
 
 	}

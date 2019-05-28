@@ -34,7 +34,7 @@
         <?php } ?>
 
         <div class="site-info">
-            <div>The Coffee Can since May 2014</div>
+            <div class="footer-main-text">The Coffee Can since May 2014</div>
             <div><?php printf(esc_html__('Theme: %1$s by %2$s', 'coffeecan'), 'Coffeecan', 'Team 12'); ?></div>
         </div><!-- .site-info -->
     </div><!-- .site-footer__wrap -->
