@@ -11,8 +11,13 @@ Theme developed by using the starter theme 'underscores'.
 * [Ankit Jakhar](https://github.com/akki101)
 * [Harsh Dhadwal](https://github.com/Harsh-Dhadwal)
 * [Bonnie Gilsenan](https://github.com/BonnieGilsenan)
+
 ### Server
-* Address: [54.252.178.92](http://54.252.178.92/)
+* Staging
+  - Address: [54.252.178.92](http://54.252.178.92/)
+* Production
+  - Address: [18.217.117.223](http://18.217.117.223/)
+
 ### Wordpress
 * Version: [5.2.1](https://wordpress.org/support/wordpress-version/version-5-2-1/)
 * Base theme credit: [Underscores](http://underscores.me/)
